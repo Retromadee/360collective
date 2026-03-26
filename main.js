@@ -36,8 +36,25 @@ function loadServices() {
     });
 }
 
+// Theme Toggle Logic
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light'; // Light by default as requested
+    body.setAttribute('data-theme', savedTheme);
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
 // Interactivity
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     loadServices();
     
     // Smooth scroll for nav links
@@ -55,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.padding = '0.5rem 0';
-            navbar.style.background = 'rgba(5, 5, 5, 0.95)';
+            navbar.style.padding = '0.7rem 0';
+            navbar.style.background = 'var(--nav-bg)';
         } else {
-            navbar.style.padding = '1rem 0';
-            navbar.style.background = 'rgba(5, 5, 5, 0.8)';
+            navbar.style.padding = '1.5rem 0';
+            navbar.style.background = 'var(--nav-bg)';
         }
     });
 });
