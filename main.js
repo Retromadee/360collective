@@ -1,16 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBVHByNDIIP3bYctCSMHW6krcvz4_CeOeQ",
-  authDomain: "creative-70d22.firebaseapp.com",
-  projectId: "creative-70d22",
-  storageBucket: "creative-70d22.firebasestorage.app",
-  messagingSenderId: "996447106939",
-  appId: "1:996447106939:web:e42eb587541123532e6fde",
-  measurementId: "G-Q35P33ZW5D"
-};
+import firebaseConfig from "./firebase-config.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
